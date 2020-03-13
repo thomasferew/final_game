@@ -20,6 +20,7 @@ namespace myTiles {
 `
 }
 function level4 () {
+    game.splash("LEVEL:4")
     info.changeScoreBy(1)
     gap = Math.randomRange(0, 3)
     if (gap == 0) {
@@ -994,7 +995,48 @@ function level () {
 . . . . . . . . . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . . . . . . . . . 
 `
-        bottomimage = gap == 2
+        bottomimage = img`
+. . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . b b b b . . . . . . . . . . 
+. . . . . . . . b b d d d d b b . . . . . . . . 
+. . . . . . . b d d b b b b d d b . . . . . . . 
+. . . . . . b d b b d d d d b b d b . . . . . . 
+. . . . . b d b b d b b b b d b b d b . . . . . 
+. . . . . b d b d b d d d d b d b d b . . . . . 
+. . . . . c d b b d b b b b d b b d c . . . . . 
+. . . . . c b d b b d d d d b b d b c . . . . . 
+. . . . . e f b d d b b b b d d b c e . . . . . 
+. . . . . e e f f b d d d d b c c e e . . . . . 
+. . . . . e e e e f f c c c c e e e . . . . . . 
+. . . . . c e e e e e e e e e e e e . . . . . . 
+. . . . . c e e e e e e e e e e e e . . . . . . 
+. . . . . f e e e e e e e e e e e e . . . . . . 
+. . . . . c c e e e e e e e e e e e . . . . . . 
+. . . . . . f e e e e e e e e e e e . . . . . . 
+. . . . . 6 f c e e e e e e e e e e 6 . . . . . 
+. . . . 6 7 7 6 e e e e e e e e e 6 7 6 . . . . 
+. . . 6 7 7 7 6 6 6 e e e e 6 6 6 6 7 7 6 . . . 
+. . 6 7 7 6 8 e 6 7 7 6 6 7 7 7 6 6 7 7 7 6 . . 
+. . . 6 6 8 e e 7 7 6 8 8 6 7 7 8 8 6 6 6 . . . 
+. . . . . . e e 7 7 e e e e 7 7 e c e e . . . . 
+. . . . . . e e 6 e e e e e e 6 e e f . . . . . 
+. . . . . . e e e e e e e e e e e e f . . . . . 
+. . . . . . e e e e e e e e e e e e f . . . . . 
+. . . . . . e e e e e e e e e e e c f . . . . . 
+. . . . . . c e e e e e e e e e e c f . . . . . 
+. . . . . . c e e e e e e e e e e f f . . . . . 
+. . . . . . f e e e e e e e e e e f e . . . . . 
+. . . . . 6 f e e e e e e e e e e f 6 . . . . . 
+. . . . 6 7 7 6 e e e e e e e e e 6 7 6 . . . . 
+. . . 6 7 7 7 6 6 6 e e e e 6 6 6 7 7 7 6 . . . 
+. . 6 7 7 6 e e 6 7 7 7 7 7 7 7 6 6 7 7 7 6 . . 
+. . . 6 6 8 e e 7 7 6 8 8 6 7 7 8 8 6 6 6 . . . 
+. . . . . . e e 7 7 e e e e 6 7 e e . . . . . . 
+. . . . . . e e 6 e e e e e e 6 c e . . . . . . 
+`
     }
     projectile = sprites.createProjectileFromSide(topimage, -45, 0)
     projectile.top = 0
@@ -1562,8 +1604,15 @@ bird()
 background()
 // obsatcles for the game picks random 0 to 3
 game.onUpdateInterval(1500, function () {
+    level()
     if (info.score() == 2) {
         level_2()
+    }
+    if (info.score() == 4) {
+        level_3()
+    }
+    if (info.score() == 5) {
+        level4()
     }
 })
 // if sprite touches top or bottom of map you lose
